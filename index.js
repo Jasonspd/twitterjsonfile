@@ -1,13 +1,14 @@
 var http = require('http');
 var fs = require('fs');
-var ec = require('ecstatic');
+var ecstatic = require('ecstatic')({root: __dirname + '/public'});
+;
 var Twitter = require('twitter');
 
 var keys = require('./keys');
 
 var client = new Twitter(keys);
 
-var tweetsfile = {};
+// var tweetsfile = {};
 
 //tweets = {
 //   863878 : { text: tweet.text, hashtag: 'stop'    }  
@@ -38,7 +39,6 @@ client.stream('statuses/filter', {track: '@foundersandcoders stop,@foundersandco
   if (err) {
     return console.log(err);
   }
-  // console.log();
 });
 
   });
@@ -54,7 +54,8 @@ http.createServer(function(request, response){
         response.writeHead(200, {"Content-Type": "text/plain"});
         response.end();
         }
-        // else {
-        //   ec(request, response);
-        // }
+        else {
+          ecstatic(request, response);
+        }
     }).listen(8080);
+console.log ("It's on port 8080...")

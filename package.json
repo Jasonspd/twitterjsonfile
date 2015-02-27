@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
+  "name": "TwitterD3",
   "version": "0.1.2",
-  "description": "A sample Node.js app using Express 4",
+  "description": "A simple app that gets twitter api data and visualize it using the d3 library",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
